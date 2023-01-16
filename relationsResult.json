@@ -1,0 +1,46 @@
+{
+  "11": {
+    "id": "11",
+    "name": "Task 2",
+    "relations": [
+      {
+        "id": "14",
+        "name": "Post-Task 2.1",
+        "relations": [],
+        "relation": "Successor"
+      },
+      {
+        "id": "13",
+        "name": "Pre-Task 2.1",
+        "relations": [],
+        "relation": "Predecessor"
+      },
+      {
+        "id": "12",
+        "name": "Child 2.1",
+        "relations": [],
+        "relation": "Child"
+      },
+      {
+        "id": "1",
+        "name": "Migration from React Version 17 to 18",
+        "relations": [
+          {
+            "id": "2",
+            "name": "Todos",
+            "relations": [
+              {
+                "id": "10",
+                "name": "Task 1",
+                "relations": [],
+                "relation": "Child"
+              }
+            ],
+            "relation": "Child"
+          }
+        ],
+        "relation": "Parent"
+      }
+    ]
+  }
+}

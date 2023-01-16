@@ -1,0 +1,37 @@
+{
+  "name": "vf-ad-scripts",
+  "version": "1.0.0",
+  "description": "Api to interact with Azure devops",
+  "main": "index.js",
+  "repository": "https://vfuk-digital.visualstudio.com/Digital/_git/vf-ad-scripts",
+  "author": "sachin.vashist <sachin.vashist@vodafone.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "boxen": "^7.0.0",
+    "cli-html": "^3.0.6",
+    "commander": "^9.4.0",
+    "console-table-printer": "^2.11.1",
+    "dotenv": "^16.0.3",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^9.1.0",
+    "inquirer-checkbox-plus-prompt": "^1.0.1",
+    "inquirer-search-list": "^1.2.6",
+    "node-fetch": "2",
+    "openurl": "^1.1.1",
+    "ora": "^6.1.2",
+    "sync-each": "^1.0.1"
+  },
+  "dependencies": {
+    "create-react-app": "^5.0.1",
+    "fs": "^0.0.1-security",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts":"^5.0.1"
+  }
+}
