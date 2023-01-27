@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "Api to interact with Azure devops",
   "main": "index.js",
-  "repository": "https://vfuk-digital.visualstudio.com/Digital/_git/vf-ad-scripts",
-  "author": "sachin.vashist <sachin.vashist@vodafone.com>",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -32,7 +30,6 @@
     "fs": "^0.0.1-security",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "reactflow": "^11.4.2"
+    "react-scripts":"^5.0.1"
   }
 }

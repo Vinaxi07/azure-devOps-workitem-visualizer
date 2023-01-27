@@ -1,5 +1,6 @@
 import axiosWithAuth from '../utils/axiosWithAuth.js';
 
+
 export const fetchTeamsAndIterations = () => {
 
     return new Promise((resolve, reject) => {
@@ -29,7 +30,6 @@ export const fetchRelations = (ids) => {
             })
     })
 }
-
 export const fetchWorkItem = (id)=>{
 
     if(!id) return Promise.reject('')
@@ -46,4 +46,3 @@ export const fetchWorkItem = (id)=>{
     })
 
 }
-

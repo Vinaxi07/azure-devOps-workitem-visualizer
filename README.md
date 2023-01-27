@@ -3,8 +3,8 @@ A Nodejs script to add new Epic and Linked features with selected teams and iter
 
 ## Steps to run
 - Run ```yarn install``` in root folder to download npm modules
-- Create a token with from `Users-Settings`
-- Update Azure DevOps `API_USERNAME`, `API_TOKEN`, `API_ORGANISATION` and `API_PROJECT` details in ```.env``` file in root folder
+- Create a token with from this [Users-Settings](https://dev.azure.com/vfuk-digital/_usersSettings/tokens) 
+- Update Azure DevOps username and token details in ```.env``` file in root folder
 - Update Epic or Feature name,description etc. at path ```config/taskConfig.js``` 
 - Run ```yarn start``` to start the script
 - Search and Select team for the epic and press enter

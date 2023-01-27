@@ -1,0 +1,184 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  padding: 0;
+  display: flex;
+  list-style: none;
+  padding-top: 2.5vh;
+  position: relative;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2.5vh;
+}
+
+/* draw connectors between parent elements */
+ul::before {
+  content: "";
+  position: absolute;
+  top: 0vh;
+  left: 50%;
+  border: solid 1px;
+  height: 2.5vh;
+}
+
+ul:first-child::before {
+  display: none;
+}
+
+/* draw connectors between siblings */
+/* vertical connectors */
+li::before {
+  content: "";
+  top: 0;
+  left: 50%;
+  height: 2.5vh;
+  position: absolute;
+  border: solid 1px;
+}
+
+/* horizontal connectors */
+li::after {
+  content: "";
+  top: 0;
+  width: 100%;
+  position: absolute;
+  border-top: solid 1px;
+}
+
+/* remove the horizontal connector for the only child */
+li:only-child::after {
+  display: none;
+}
+
+/* remove extra left and right horizontal connector */
+li:first-of-type::after {
+  width: 50%;
+  right: 0;
+}
+
+li:last-of-type::after {
+  width: 50%;
+  left: 0;
+}
+
+/* remove connectors before only child */
+li:only-child {
+  padding-top: 0;
+}
+
+li:only-child::before {
+  display: none;
+}
+
+/* adding styles */
+li div * {
+  padding: 0.3em;
+}
+
+li div {
+  padding: 0.5em;
+  margin: 0 1em;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease-out;
+  background: rgb(233, 230, 234);
+  box-shadow: 2px 20px 50px 0 rgb(0 0 0 / 7%);
+  border-left: 5px solid #d293e9
+}
+
+li div img {
+  width: 65px;
+  height: 65px;
+}
+
+span {
+  display: block;
+}
+
+li div span:nth-child(1) {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+li div span:nth-child(2) {
+  letter-spacing: 0.1em;
+   /* text-transform: uppercase;
+  font-weight: 700; */
+}
+
+.successor{
+  border-left: 5px solid #d8e993
+}
+
+.predecessor{
+  border-left: 5px solid #f23434
+}
+
+.child{
+  border-left: 5px solid #615fc1
+}
+
+.parent{
+  border-left: 5px solid #93e997
+}
+
+/* hover effect*/
+/* li div:hover,
+li div:hover + ul li div {
+  background: #d1b2f7;
+  transform: scale(1.02) translateY(-0.2rem);
+}
+
+li div:hover + ul li::after,
+li div:hover + ul li::before,
+li div:hover + ul::before,
+li div:hover + ul ul::before {
+  border-color: rgb(206, 188, 188);
+  transform: scale(1) translateY(-0.3rem);
+} */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 500px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

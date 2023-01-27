@@ -38,7 +38,6 @@ const createConsoleTable = (epicBody, epicTeam, featureTeams, iteration) => {
     console.log(boxen(cliHtml(epicBody[1].value), { title: 'Description', padding: 0.5 }));
 }
 
-
 // get item id by url string
 let getItemIdByURL = (url = '') => {
     let strAry = url.split('/')

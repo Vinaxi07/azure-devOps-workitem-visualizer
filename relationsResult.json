@@ -2,44 +2,70 @@
   "11": {
     "id": "11",
     "name": "Task 2",
+    "description": "<div>Dummy data for task 2 </div>",
+    "state": "To Do",
     "relations": [
       {
-        "id": "14",
-        "name": "Post-Task 2.1",
-        "relations": [],
-        "relation": "Successor"
+        "14": {
+          "id": "14",
+          "name": "Post-Task 2.1",
+          "relation": "Successor",
+          "description": "",
+          "state": "To Do",
+          "relations": []
+        }
       },
       {
-        "id": "13",
-        "name": "Pre-Task 2.1",
-        "relations": [],
-        "relation": "Predecessor"
+        "13": {
+          "id": "13",
+          "name": "Pre-Task 2.1",
+          "relation": "Predecessor",
+          "description": "",
+          "state": "To Do",
+          "relations": []
+        }
       },
       {
-        "id": "12",
-        "name": "Child 2.1",
-        "relations": [],
-        "relation": "Child"
+        "12": {
+          "id": "12",
+          "name": "Child 2.1",
+          "relation": "Child",
+          "description": "",
+          "state": "To Do",
+          "relations": []
+        }
       },
       {
-        "id": "1",
-        "name": "Migration from React Version 17 to 18",
-        "relations": [
-          {
-            "id": "2",
-            "name": "Todos",
-            "relations": [
-              {
-                "id": "10",
-                "name": "Task 1",
-                "relations": [],
-                "relation": "Child"
+        "1": {
+          "id": "1",
+          "name": "Migration from React Version 17 to 18",
+          "relation": "Parent",
+          "description": "<div>React version migration from 17 to 18 </div>",
+          "state": "To Do",
+          "relations": [
+            {
+              "2": {
+                "id": "2",
+                "name": "Todos",
+                "relation": "Child",
+                "description": "",
+                "state": "To Do",
+                "relations": [
+                  {
+                    "10": {
+                      "id": "10",
+                      "name": "Task 1",
+                      "relation": "Child",
+                      "description": "",
+                      "state": "To Do",
+                      "relations": []
+                    }
+                  }
+                ]
               }
-            ],
-            "relation": "Child"
-          }
-        ],
-        "relation": "Parent"
+            }
+          ]
+        }
       }
     ]
   }
