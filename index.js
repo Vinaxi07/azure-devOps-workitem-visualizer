@@ -1,96 +1,26 @@
 import fs from 'fs'
-import { fetchRelations, fetchWorkItem } from './services/index.js';
-import { getItemIdByURL } from './utils/helperFuns.js';
+import { getAllRelationsById } from './services/index.js';
 
-const ITEM_ID = '23'
+// work item id for which you want to have visualiser
+const ITEM_ID = '23' 
+
 const traversedItems = []
 
-// --------------------get all relations by item id------------------
-const getAllRelationsById = async (itemId) => {
-  // console.log({itemId});
-  try {
-    if (traversedItems.includes(itemId)) return
-    traversedItems.push(itemId)
-    let workItemTree = {}, relations = []
-    let workItemData = await fetchWorkItem(itemId)
-
-    // console.log({workItemData:workItemData?.data});
-
-    try {
-      // console.log({ itemId, traversedItems });
-      let workItemRelations = await fetchRelations([itemId])
-      let relationValue = workItemRelations?.data?.value || []
-
-      if (relationValue?.length) {
-        for await (let item of relationValue) {
-          if (item.relations) {
-            let workItemRelations = item.relations
-
-            // let workItemRelations = item.relations.filter(c => c.attributes?.name === 'Child')
-            for await (let relatedItem of workItemRelations) {
-
-              // console.log({ relatedItem });
-
-              let relatedItemId = getItemIdByURL(relatedItem.url)
-              //  console.log({ relatedItemId });
-              if (relatedItemId) {
-                let relatedItemData = await getAllRelationsById(relatedItemId)
-                // console.log({relatedItemData});
-                if (relatedItemData) {
-                  relatedItemData = {
-                    id: relatedItemData[relatedItemId]?.id,
-                    name: relatedItemData[relatedItemId]?.name,
-                    relation: relatedItem?.attributes?.name,
-                    ...relatedItemData[relatedItemId]
-                  }
-                  relations.push({
-                    [relatedItemId]: relatedItemData
-                  })
-                }
-              }
-            }
-          }
-        }
-      }
-    } catch (error) {
-      console.log({ error });
-    }
-
-    //  console.log({workItemData});
-
-    workItemTree = {
-      [itemId]: {
-        id: itemId,
-        type: workItemData?.data?.fields['System.WorkItemType'] || "",
-        name: workItemData?.data?.fields['System.Title'] || '',
-        description: workItemData?.data?.fields['System.Description'] || '',
-        state: workItemData?.data?.fields['System.State'] || "To Do",
-        relations
-      }
-    }
-
-    // console.log({ workItemTree });
-
-    return workItemTree
-
-  } catch (e) {
-    console.log({ e });
-  }
-}
-
 try {
-  let epicRelations = await getAllRelationsById(ITEM_ID)
+  // get work item relations
+  let epicRelations = await getAllRelationsById(ITEM_ID, traversedItems)
+
   var json = epicRelations
   json = JSON.stringify(json, 2, 2)
-  // console.log({json});
 
+  //-----------------Write an output in to JSON file------------------
   fs.writeFile('relationsResult.json', json, (err, data) => {
     if (err) {
-      console.log((error));
-    } else {
-      // console.log({data});
-    }
+      console.log((err));
+    } 
   })
+
+  //------------------------Generate HTML code-----------------------
   // array to hold HTML tags
   let markupArray = "<ul>";
 
@@ -109,7 +39,6 @@ try {
 
       // fetch the parent object
       let details = items[item];
-      console.log({ details: details.type?.replace(/\s/g, '')?.toLowerCase() });
       markupArray += (`<li> <div class="${details.type?.replace(/\s/g, '')?.toLowerCase()} tooltip">`);
       // if(details.description){
       // markupArray += (`<span class="tooltiptext">${details.description}</span>`);
@@ -122,8 +51,8 @@ try {
 
   // get details
   const getDetails = (details) => {
-    // iterate over the detail items of object
 
+    // iterate over the detail items of object
     for (const detail in details) {
       // fetch the value of each item
       if (detail == "relations" && details[detail].length) {
@@ -145,8 +74,11 @@ try {
     }
   };
 
+
   createList(epicRelations);
   markupArray += ("</ul>");
+
+  //----------------------Write HTML code in to index.html file-----------------
 
   fs.writeFile('index.html',
     `<!DOCTYPE html>
@@ -169,10 +101,8 @@ text-decoration: underline' >Tree visualiser for item id ${ITEM_ID}</h1>
 </html>
    `, (err, data) => {
     if (err) {
-      console.log((error));
-    } else {
-      // console.log({data});
-    }
+      console.log((err));
+    } 
   })
 
 }
