@@ -2,7 +2,7 @@ import fs from 'fs'
 import { fetchRelations, fetchWorkItem } from './services/index.js';
 import { getItemIdByURL } from './utils/helperFuns.js';
 
-const ITEM_ID = '11'
+const ITEM_ID = '23'
 const traversedItems = []
 
 // --------------------get all relations by item id------------------
@@ -14,7 +14,7 @@ const getAllRelationsById = async (itemId) => {
     let workItemTree = {}, relations = []
     let workItemData = await fetchWorkItem(itemId)
 
-   // console.log({workItemData:workItemData?.data});
+    // console.log({workItemData:workItemData?.data});
 
     try {
       // console.log({ itemId, traversedItems });
@@ -56,14 +56,15 @@ const getAllRelationsById = async (itemId) => {
       console.log({ error });
     }
 
-    //  console.log({relations});
+    //  console.log({workItemData});
 
     workItemTree = {
       [itemId]: {
         id: itemId,
+        type: workItemData?.data?.fields['System.WorkItemType'] || "",
         name: workItemData?.data?.fields['System.Title'] || '',
-        description:  workItemData?.data?.fields['System.Description'] || '',
-        state:  workItemData?.data?.fields['System.State'] ||  "To Do",
+        description: workItemData?.data?.fields['System.Description'] || '',
+        state: workItemData?.data?.fields['System.State'] || "To Do",
         relations
       }
     }
@@ -108,10 +109,11 @@ try {
 
       // fetch the parent object
       let details = items[item];
-      markupArray += (`<li> <div class="${details.relation?.toLowerCase()} tooltip">`);
-      if(details.description){
-      markupArray += (`<span class="tooltiptext">${details.description}</span>`);
-      }
+      console.log({ details: details.type?.replace(/\s/g, '')?.toLowerCase() });
+      markupArray += (`<li> <div class="${details.type?.replace(/\s/g, '')?.toLowerCase()} tooltip">`);
+      // if(details.description){
+      // markupArray += (`<span class="tooltiptext">${details.description}</span>`);
+      // }
       getDetails(details);
       // push the closing tag for parent
       markupArray += ("</li>");
@@ -131,14 +133,14 @@ try {
         });
         markupArray += ("</ul>");
       } else {
-        if(detail !== 'description') 
-
-        {if(detail === 'state'){
-          markupArray += (`<span> Status: ${details[detail]} </span>`);
+        if (detail !== 'description') {
+          if (detail === 'type' || detail === 'state') {
+            markupArray += (`<span> ${detail}: ${details[detail]} </span>`);
+          }
+          else {
+            markupArray += (`<span> ${details[detail]} </span>`);
+          }
         }
-       else{
-        markupArray += (`<span> ${details[detail]} </span>`);
-       }}
       }
     }
   };

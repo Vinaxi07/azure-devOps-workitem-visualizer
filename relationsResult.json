@@ -1,67 +1,143 @@
 {
-  "11": {
-    "id": "11",
-    "name": "Task 2",
-    "description": "<div>Dummy data for task 2 </div>",
-    "state": "To Do",
+  "23": {
+    "id": "23",
+    "type": "Epic",
+    "name": "Epic Visualiser",
+    "description": "<div>Enter Epic ID to visualize the tree </div>",
+    "state": "New",
     "relations": [
       {
-        "14": {
-          "id": "14",
-          "name": "Post-Task 2.1",
-          "relation": "Successor",
-          "description": "",
-          "state": "To Do",
-          "relations": []
-        }
-      },
-      {
-        "13": {
-          "id": "13",
-          "name": "Pre-Task 2.1",
-          "relation": "Predecessor",
-          "description": "",
-          "state": "To Do",
-          "relations": []
-        }
-      },
-      {
-        "12": {
-          "id": "12",
-          "name": "Child 2.1",
+        "27": {
+          "id": "27",
+          "name": "Chunk task in to modules",
           "relation": "Child",
+          "type": "Task",
           "description": "",
-          "state": "To Do",
-          "relations": []
-        }
-      },
-      {
-        "1": {
-          "id": "1",
-          "name": "Migration from React Version 17 to 18",
-          "relation": "Parent",
-          "description": "<div>React version migration from 17 to 18 </div>",
-          "state": "To Do",
+          "state": "New",
           "relations": [
             {
-              "2": {
-                "id": "2",
-                "name": "Todos",
+              "37": {
+                "id": "37",
+                "name": "Issue 1",
                 "relation": "Child",
+                "type": "Issue",
                 "description": "",
-                "state": "To Do",
+                "state": "Active",
+                "relations": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "26": {
+          "id": "26",
+          "name": "Display work item by type",
+          "relation": "Successor",
+          "type": "Feature",
+          "description": "",
+          "state": "New",
+          "relations": [
+            {
+              "33": {
+                "id": "33",
+                "name": "Show color by work item type",
+                "relation": "Child",
+                "type": "Bug",
+                "description": "",
+                "state": "New",
+                "relations": []
+              }
+            },
+            {
+              "32": {
+                "id": "32",
+                "name": "Story 3",
+                "relation": "Child",
+                "type": "User Story",
+                "description": "",
+                "state": "New",
                 "relations": [
                   {
-                    "10": {
-                      "id": "10",
-                      "name": "Task 1",
+                    "36": {
+                      "id": "36",
+                      "name": "Add title",
                       "relation": "Child",
+                      "type": "Issue",
                       "description": "",
-                      "state": "To Do",
+                      "state": "Active",
                       "relations": []
                     }
                   }
                 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "25": {
+          "id": "25",
+          "name": "Click to expand work item",
+          "relation": "Predecessor",
+          "type": "Feature",
+          "description": "",
+          "state": "New",
+          "relations": [
+            {
+              "34": {
+                "id": "34",
+                "name": "Generate basic UI",
+                "relation": "Child",
+                "type": "Task",
+                "description": "",
+                "state": "New",
+                "relations": []
+              }
+            },
+            {
+              "35": {
+                "id": "35",
+                "name": "Click function not working",
+                "relation": "Child",
+                "type": "Bug",
+                "description": "",
+                "state": "New",
+                "relations": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "24": {
+          "id": "24",
+          "name": "Design",
+          "relation": "Child",
+          "type": "Feature",
+          "description": "",
+          "state": "New",
+          "relations": [
+            {
+              "28": {
+                "id": "28",
+                "name": "Story 1",
+                "relation": "Child",
+                "type": "User Story",
+                "description": "",
+                "state": "New",
+                "relations": []
+              }
+            },
+            {
+              "29": {
+                "id": "29",
+                "name": "Story 2",
+                "relation": "Child",
+                "type": "User Story",
+                "description": "",
+                "state": "New",
+                "relations": []
               }
             }
           ]

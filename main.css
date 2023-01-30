@@ -103,9 +103,9 @@ li div {
   border-radius: 5px;
   text-align: center;
   transition: all 0.3s ease-out;
-  background: rgb(233, 230, 234);
+  background: rgb(245, 245, 245);
   box-shadow: 2px 20px 50px 0 rgb(0 0 0 / 7%);
-  border-left: 5px solid #d293e9
+  border: 1px solid black;
 }
 
 li div img {
@@ -128,21 +128,30 @@ li div span:nth-child(2) {
   font-weight: 700; */
 }
 
-.successor{
-  border-left: 5px solid #d8e993
+.epic{
+  border-left: 5px solid #f1a71d
 }
 
-.predecessor{
-  border-left: 5px solid #f23434
+.feature{
+  border-left: 5px solid #8d34f2
 }
 
-.child{
-  border-left: 5px solid #615fc1
+.userstory{
+  border-left: 5px solid #2013e0
 }
 
-.parent{
-  border-left: 5px solid #93e997
+.task{
+  border-left: 5px solid #f3ef96
 }
+
+.issue{
+  border-left: 5px solid #ed40c5
+}
+
+.bug{
+  border-left: 5px solid #e8372d
+}
+
 
 /* hover effect*/
 /* li div:hover,
@@ -159,13 +168,13 @@ li div:hover + ul ul::before {
   transform: scale(1) translateY(-0.3rem);
 } */
 
-.tooltip {
+/* .tooltip {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
 }
 
-.tooltip .tooltiptext {
+.tooltip .tooltiptext  {
   visibility: hidden;
   width: 500px;
   background-color: black;
@@ -173,12 +182,10 @@ li div:hover + ul ul::before {
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-
-  /* Position the tooltip */
   position: absolute;
   z-index: 1;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext{
   visibility: visible;
-}
+} */
