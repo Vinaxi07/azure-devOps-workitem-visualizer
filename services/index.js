@@ -13,6 +13,7 @@ export const fetchRelations = (ids) => {
         })
             .then(resolve)
             .catch((err) => {
+              console.log({err});
                 return console.log(`Error Occured: ${err.message}`)
             })
     })
@@ -28,6 +29,7 @@ export const fetchWorkItem = (id)=>{
         })
             .then(resolve)
             .catch((err) => {
+              console.log({errrr: err});
                 return console.log(`Error Occured: ${err.message}`)
             })
     })
